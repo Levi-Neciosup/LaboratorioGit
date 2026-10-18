@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atención Crítica - Nexo</title>
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Dedicado para esta página (no reutilizado para evitar colisiones) -->
+    <link rel="stylesheet" href="./critica.css">
+</head>
+<body>
+
+    <!-- SIDEBAR (Estructura base) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <h1>nexo</h1>
+                    <p>TECNOLOGÍA QUE CUIDA</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tenant-selector">
+            <div class="tenant-icon">🏥</div>
+            <div>
+                <p class="tenant-label">PORTAL DE SOPORTE TI</p>
+                <strong>Red Salud Integral</strong>
+                <span>12 sedes · Entorno de demostración</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-section">ESPACIO DE OPERACIÓN</p>
+            <a href="dashboard.html" class="nav-item">
+                <span class="icon">⊞</span> Inicio
+            </a>
+            <a href="tickets.html" class="nav-item">
+                <span class="icon">🎫</span> Tickets <span class="badge">38</span>
+            </a>
+            <!-- Enlace Activo -->
+            <a href="atencion-critica.html" class="nav-item active-critical">
+                <span class="icon">🚨</span> Atención crítica
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">📊</span> Indicadores
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item">
+                <span class="icon">📚</span> Base de conocimiento
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span> Configuración
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="support-card-vibrant">
+                <h4>Contigo, las 24 horas</h4>
+                <p>El equipo de guardia está disponible para ayudarte.</p>
+                <a href="#" class="btn-link-warm">Contactar soporte →</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="breadcrumbs">Portal de servicio / <strong class="text-red">Atención crítica</strong></div>
+            <div class="topbar-right">
+                <span class="status-badge-live">● Soporte 24/7 activo</span>
+                <span class="datetime">16 oct 2026 · 22:40</span>
+                <div class="notification-icon">🔔</div>
+                <div class="user-profile-top">
+                    <div class="avatar">AV</div>
+                    <div>
+                        <strong>Ana Vargas</strong>
+                        <span>Coordinadora TI</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="page-container">
+            <!-- PAGE HEADER -->
+            <div class="critical-header">
+                <div>
+                    <span class="section-label text-red">CONTINUIDAD ASISTENCIAL</span>
+                    <h2>Cuando es urgente, estamos aquí</h2>
+                    <p>Respuesta coordinada, responsables claros y acompañamiento durante toda la noche.</p>
+                </div>
+                <button class="btn-critical-pulse">
+                    <span class="icon">🚨</span> Activar incidente crítico
+                </button>
+            </div>
+
+            <!-- BANNER NOCTURNO -->
+            <div class="night-shift-banner">
+                <div class="banner-left">
+                    <div class="moon-icon">🌙</div>
+                    <div>
+                        <h3>La atención no se detiene a las 22:00.</h3>
+                        <p>Guardia nocturna activa · 22:00–06:00 · Cobertura en las 12 sedes</p>
+                    </div>
+                </div>
+                <div class="banner-right">
+                    <span class="badge-live">● 3 especialistas disponibles</span>
+                    <p><strong>P1:</strong> respuesta ≤ 5 min · resolución ≤ 2 h</p>
+                </div>
+            </div>
+
+            <!-- TARJETAS DE CONTACTO RÁPIDO -->
+            <div class="contact-grid">
+                <div class="contact-card border-blue">
+                    <div class="contact-header">
+                        <span class="icon-large">📞</span>
+                        <h4>Línea urgente 24/7</h4>
+                    </div>
+                    <h3>Extensión 7000</h3>
+                    <p>Desde cualquier sede · Atención inmediata</p>
+                    <a href="#" class="contact-link">Llamar a la guardia →</a>
+                </div>
+                <div class="contact-card border-red">
+                    <div class="contact-header">
+                        <span class="icon-large">💬</span>
+                        <h4>Canal de crisis</h4>
+                    </div>
+                    <h3>Sala · Incidentes críticos</h3>
+                    <p>Coordinación TI + referentes clínicos</p>
+                    <a href="#" class="contact-link">Entrar a la sala →</a>
+                </div>
+                <div class="contact-card border-orange">
+                    <div class="contact-header">
+                        <span class="icon-large">📡</span>
+                        <h4>Respaldo de guardia</h4>
+                    </div>
+                    <h3>Extensión 7001</h3>
+                    <p>Si no hay respuesta en 2 min, usa el respaldo</p>
+                    <a href="#" class="contact-link">Contactar respaldo →</a>
+                </div>
+            </div>
+
+            <!-- GRID PRINCIPAL: PROTOCOLO Y DETALLE -->
+            <div class="critical-main-grid">
+                
+                <!-- COLUMNA IZQUIERDA: PROTOCOLO -->
+                <div class="panel-protocol">
+                    <div class="panel-header">
+                        <h3>Protocolo de respuesta rápida · P1</h3>
+                        <a href="#" class="link-blue">Ver guía completa ↗</a>
+                    </div>
+                    <p class="protocol-desc">Se activa ante indisponibilidad de un servicio médico sin alternativa segura, interrupción de un área crítica o afectación multisede.</p>
+
+                    <div class="timeline">
+                        <!-- Paso 1 -->
+                        <div class="timeline-step completed">
+                            <div class="step-indicator">✓</div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <h4>Activar y confirmar</h4>
+                                    <span class="badge-time">0–5 min</span>
+                                </div>
+                                <p><strong>Guardia N1 · Laura Méndez · Completado</strong></p>
+                                <small>Abrir ticket P1, validar impacto clínico y avisar al coordinador. Confirmar recepción en ≤ 5 min.</small>
+                            </div>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="timeline-step completed">
+                            <div class="step-indicator">✓</div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <h4>Proteger la continuidad</h4>
+                                    <span class="badge-time">5–15 min</span>
+                                </div>
+                                <p><strong>Referente clínico + N1 · Completado</strong></p>
+                                <small>Activar contingencia validada por el área. No reiniciar sistemas clínicos sin autorización.</small>
+                            </div>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="timeline-step active">
+                            <div class="step-indicator">03</div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <h4>Movilizar especialistas</h4>
+                                    <span class="badge-time badge-warning">≤ 30 min</span>
+                                </div>
+                                <p><strong>Nivel 2 · Diego Ruiz · En curso</strong></p>
+                                <small>Escalar con evidencias, acciones previas y alcance. Involucrar N3 si no hay recuperación a las 23:00.</small>
+                            </div>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="timeline-step pending">
+                            <div class="step-indicator">04</div>
+                            <div class="step-content">
+                                <div class="step-header">
+                                    <h4>Restaurar y verificar</h4>
+                                    <span class="badge-time">Objetivo ≤ 2 h</span>
+                                </div>
+                                <p><strong>N2 + referente del servicio · Pendiente</strong></p>
+                                <small>Validar el servicio con el área clínica, comunicar recuperación y documentar causa. Revisión en 24 h.</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="protocol-footer">
+                        🛡️ Protocolo vigente v2.4 · Revisión: 01 oct 2026
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: INCIDENTE Y EQUIPO -->
+                <div class="panel-sidebar">
+                    
+                    <!-- Incidente Activo -->
+                    <div class="incident-active-card">
+                        <div class="incident-top">
+                            <span class="incident-id">INC-2481</span>
+                            <span class="badge-critical-pulse">● P1 · Crítica</span>
+                        </div>
+                        <h3>Intermitencia en visor de imágenes PACS</h3>
+                        <p class="incident-location">Hospital Central · Radiología</p>
+                        
+                        <div class="incident-status-row">
+                            <span class="badge-level">● Nivel 2 en atención</span>
+                            <span class="sla-timer">SLA 1 h 32 min</span>
+                        </div>
+                        
+                        <p class="incident-note">Contingencia activa · Próximo aviso a las 22:45. Actualizaciones cada 15 min.</p>
+                        
+                        <button class="btn-incident-action">↗ Abrir seguimiento del incidente</button>
+                    </div>
+
+                    <!-- Equipo de Guardia -->
+                    <div class="team-card">
+                        <div class="panel-header">
+                            <h3>Equipo de guardia</h3>
+                            <a href="#" class="link-blue">Ver calendario ↗</a>
+                        </div>
+                        <div class="team-list">
+                            <div class="team-member">
+                                <div class="avatar-team lm">LM</div>
+                                <div class="team-info">
+                                    <strong>Laura Méndez</strong>
+                                    <span>N1 · Primer contacto</span>
+                                </div>
+                                <span class="status-dot online">En línea</span>
+                            </div>
+                            <div class="team-member">
+                                <div class="avatar-team dr">DR</div>
+                                <div class="team-info">
+                                    <strong>Diego Ruiz</strong>
+                                    <span>N2 · Sistemas clínicos</span>
+                                </div>
+                                <span class="status-dot busy">En atención</span>
+                            </div>
+                            <div class="team-member">
+                                <div class="avatar-team cp">CP</div>
+                                <div class="team-info">
+                                    <strong>Carlos Peña</strong>
+                                    <span>N2 · Infraestructura</span>
+                                </div>
+                                <span class="status-dot online">En línea</span>
+                            </div>
+                        </div>
+                        <div class="team-footer">
+                            Respaldo N3: proveedor PACS de guardia. Escalamiento a través de Ana Vargas, coordinadora.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BANNER INFERIOR -->
+            <div class="safety-banner">
+                <span class="icon">🛡️</span>
+                <p><strong>Primero, la seguridad clínica.</strong> Coordina cualquier cambio con el referente del área. Registra cada acción en el ticket y nunca compartas datos de pacientes en los canales de soporte.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- CHATBOT FLOTANTE DEDICADO -->
+    <div class="chat-wrapper-critica">
+        <div class="chat-window-critica" id="criticaChatWindow">
+            <div class="chat-head-critica">
+                <div>
+                    <h4>Canal de Crisis</h4>
+                    <span>🟢 Conectado a Guardia N2</span>
+                </div>
+                <button id="closeCriticaChat" class="close-btn">×</button>
+            </div>
+            <div class="chat-body-critica" id="criticaChatBody">
+                <div class="msg-bot">
+                    Estás en el canal de atención crítica. ¿Requieres asistencia inmediata para el incidente INC-2481?
+                </div>
+                <div class="quick-actions-critica" id="criticaQuickActions">
+                    <button onclick="sendCriticaReply('Sí, el PACS sigue caído')">Sí, el PACS sigue caído</button>
+                    <button onclick="sendCriticaReply('Necesito contactar a Diego Ruiz')">Contactar a Diego Ruiz</button>
+                </div>
+            </div>
+            <form class="chat-input-area" id="criticaChatForm">
+                <input type="text" id="criticaChatInput" placeholder="Escribe al equipo de guardia..." autocomplete="off">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+        <button class="chat-fab-critica" id="openCriticaChat">🚨</button>
+    </div>
+
+    <!-- Script Dedicado -->
+    <script src="./critica.js"></script>
+</body>
+</html>

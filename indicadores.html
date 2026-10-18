@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicadores - Nexo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js para los gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- CSS Dedicado -->
+    <link rel="stylesheet" href="./indicadores.css">
+</head>
+<body>
+
+    <!-- SIDEBAR DEDICADO -->
+    <aside class="ind-sidebar">
+        <div class="ind-logo-area">
+            <div class="ind-logo-icon">🛡️</div>
+            <div>
+                <h1>nexo</h1>
+                <p>TECNOLOGÍA QUE CUIDA</p>
+            </div>
+        </div>
+
+        <div class="ind-tenant-box">
+            <div class="ind-tenant-icon">🏥</div>
+            <div>
+                <span class="ind-label-small">PORTAL DE SOPORTE TI</span>
+                <strong>Red Salud Integral</strong>
+                <span class="ind-tenant-desc">12 sedes · Entorno de demostración</span>
+            </div>
+        </div>
+
+        <nav class="ind-nav">
+            <span class="ind-nav-title">ESPACIO DE OPERACIÓN</span>
+            <a href="dashboard.html" class="ind-nav-link">
+                <span class="ind-icon">⊞</span> Inicio
+            </a>
+            <a href="tickets_v2.html" class="ind-nav-link">
+                <span class="ind-icon">🎫</span> Tickets <span class="ind-badge-count">38</span>
+            </a>
+            <a href="atencion-critica.html" class="ind-nav-link">
+                <span class="ind-icon">🚨</span> Atención crítica
+            </a>
+            <!-- Enlace Activo -->
+            <a href="indicadores.html" class="ind-nav-link ind-active">
+                <span class="ind-icon">📊</span> Indicadores
+            </a>
+            <div class="ind-divider"></div>
+            <a href="#" class="ind-nav-link">
+                <span class="ind-icon">📚</span> Base de conocimiento
+            </a>
+            <a href="#" class="ind-nav-link">
+                <span class="ind-icon">⚙️</span> Configuración
+            </a>
+        </nav>
+
+        <div class="ind-sidebar-bottom">
+            <div class="ind-support-box">
+                <h4>Contigo, las 24 horas</h4>
+                <p>El equipo de guardia está disponible para ayudarte.</p>
+                <a href="#">Contactar soporte →</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="ind-main">
+        <!-- TOPBAR -->
+        <header class="ind-topbar">
+            <div class="ind-breadcrumb">Portal de servicio / <strong>Indicadores</strong></div>
+            <div class="ind-topbar-actions">
+                <span class="ind-status-live">● Soporte 24/7 activo</span>
+                <span class="ind-date">16 oct 2026 · 22:40</span>
+                <div class="ind-noti">🔔</div>
+                <div class="ind-user">
+                    <div class="ind-avatar">AV</div>
+                    <div>
+                        <strong>Ana Vargas</strong>
+                        <span>Coordinadora TI</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="ind-content-wrapper">
+            <!-- HEADER PAGE -->
+            <div class="ind-page-header">
+                <div>
+                    <span class="ind-section-label">CALIDAD Y MEJORA CONTINUA</span>
+                    <h2>Un servicio que se puede medir</h2>
+                    <p>Visibilidad para mejorar la atención y proteger la continuidad de los servicios médicos.</p>
+                </div>
+                <button class="ind-btn-outline">📥 Descargar informe</button>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="ind-filters-row">
+                <div class="ind-filters-left">
+                    <button class="ind-filter-btn">📅 01–16 oct 2026</button>
+                    <button class="ind-filter-btn">Todas las sedes</button>
+                    <button class="ind-filter-btn">Todos los niveles</button>
+                </div>
+                <div class="ind-filters-right">
+                    <span class="ind-sync-text">🔄 Actualizado a las 22:40 · Comparado con 01–16 sep</span>
+                </div>
+            </div>
+
+            <!-- KPI CARDS VIBRANTES -->
+            <div class="ind-kpi-grid">
+                <div class="ind-kpi-card ind-border-blue">
+                    <div class="ind-kpi-header">
+                        <span>Cumplimiento de SLA</span>
+                        <span class="ind-icon-lg">🛡️</span>
+                    </div>
+                    <h3>96,8 %</h3>
+                    <p class="ind-trend ind-trend-up">↑ 1,6 pp · Meta ≥ 95 %</p>
+                </div>
+                <div class="ind-kpi-card ind-border-cyan">
+                    <div class="ind-kpi-header">
+                        <span>Primera respuesta</span>
+                        <span class="ind-icon-lg">💬</span>
+                    </div>
+                    <h3>4 min</h3>
+                    <p class="ind-trend ind-trend-up">↓ 2 min · Meta ≤ 10 min</p>
+                </div>
+                <div class="ind-kpi-card ind-border-orange">
+                    <div class="ind-kpi-header">
+                        <span>Tiempo de resolución</span>
+                        <span class="ind-icon-lg">⏱️</span>
+                    </div>
+                    <h3>2 h 18 min</h3>
+                    <p class="ind-trend ind-trend-up">↓ 24 min frente a septiembre</p>
+                </div>
+                <div class="ind-kpi-card ind-border-green">
+                    <div class="ind-kpi-header">
+                        <span>Resolución en nivel 1</span>
+                        <span class="ind-icon-lg">✅</span>
+                    </div>
+                    <h3>70 %</h3>
+                    <p class="ind-trend ind-trend-up">↑ 5 pp · 847 casos resueltos</p>
+                </div>
+            </div>
+
+            <!-- CHARTS SECTION -->
+            <div class="ind-charts-grid">
+                <!-- Gráfico de Barras -->
+                <div class="ind-card ind-chart-card">
+                    <div class="ind-card-header">
+                        <div>
+                            <h4>Evolución de incidentes</h4>
+                            <p class="ind-subtitle">El volumen baja; la resolución mantiene el ritmo.</p>
+                        </div>
+                        <div class="ind-chart-legend">
+                            <span class="ind-dot dark"></span> Recibidos
+                            <span class="ind-dot light"></span> Resueltos
+                        </div>
+                    </div>
+                    <div class="ind-chart-container">
+                        <canvas id="indBarChart"></canvas>
+                    </div>
+                    <div class="ind-chart-footer">
+                        <span>Acumulado del periodo: 1.248 recibidos · 1.210 resueltos</span>
+                        <span class="ind-badge-dark">● 38 abiertos</span>
+                    </div>
+                </div>
+
+                <!-- Gráfico de Dona -->
+                <div class="ind-card ind-donut-card">
+                    <div class="ind-card-header">
+                        <h4>Compromisos de SLA</h4>
+                    </div>
+                    <div class="ind-donut-wrapper">
+                        <canvas id="indDoughnutChart"></canvas>
+                        <div class="ind-donut-center">
+                            <h3>96,8 %</h3>
+                            <span>cumplido</span>
+                        </div>
+                    </div>
+                    <div class="ind-donut-legend">
+                        <div class="ind-legend-item">
+                            <span class="ind-legend-value">1.208 dentro de SLA</span>
+                        </div>
+                        <div class="ind-legend-item">
+                            <span class="ind-legend-value text-muted">40 fuera de SLA</span>
+                        </div>
+                        <div class="ind-badge-success">● Meta superada</div>
+                    </div>
+                    <div class="ind-divider"></div>
+                    <div class="ind-critical-metric">
+                        <span>Respuesta a críticos ≤ 5 min</span>
+                        <strong>100 %</strong>
+                    </div>
+                    <p class="ind-note">Medido sobre 1.248 tickets con objetivo de respuesta. 18 de prioridad crítica en el periodo.</p>
+                </div>
+            </div>
+
+            <!-- BOTTOM SECTION: TABLA Y MEJORAS -->
+            <div class="ind-bottom-grid">
+                <!-- Tabla de Desempeño -->
+                <div class="ind-card ind-table-card">
+                    <div class="ind-card-header">
+                        <h4>Desempeño por nivel</h4>
+                        <span class="ind-subtitle">Sobre 1.210 casos resueltos</span>
+                    </div>
+                    <div class="ind-table-responsive">
+                        <table class="ind-table">
+                            <thead>
+                                <tr>
+                                    <th>NIVEL</th>
+                                    <th>RESUELTOS</th>
+                                    <th>1.ª RESP.</th>
+                                    <th>RESOLUCIÓN</th>
+                                    <th>SLA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="ind-badge-level ind-n1">N1</span> <strong>Mesa de ayuda</strong></td>
+                                    <td><strong>847</strong><br><small>70 % del total</small></td>
+                                    <td>2 min</td>
+                                    <td>42 min</td>
+                                    <td><span class="ind-pill ind-pill-green">● 97,7 %</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ind-badge-level ind-n2">N2</span> <strong>Especialistas TI</strong></td>
+                                    <td><strong>303</strong><br><small>25 % del total</small></td>
+                                    <td>7 min</td>
+                                    <td>4 h 10 min</td>
+                                    <td><span class="ind-pill ind-pill-green">● 95,0 %</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ind-badge-level ind-n3">N3</span> <strong>Proveedores</strong></td>
+                                    <td><strong>60</strong><br><small>5 % del total</small></td>
+                                    <td>17 min</td>
+                                    <td>15 h 22 min</td>
+                                    <td><span class="ind-pill ind-pill-orange">● 92,0 %</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="ind-table-footer">Tiempos promedio por nivel resolutor. SLA: cumplimiento del objetivo de resolución.</div>
+                </div>
+
+                <!-- Lo que nos ayuda a mejorar -->
+                <div class="ind-card ind-improve-card">
+                    <div class="ind-card-header">
+                        <h4>Lo que nos ayuda a mejorar</h4>
+                    </div>
+                    <div class="ind-improve-list">
+                        <div class="ind-improve-item">
+                            <span class="ind-improve-icon">📈</span>
+                            <div>
+                                <strong>Más casos resueltos al primer contacto</strong>
+                                <p>Nivel 1 resuelve el 70 % de los casos. Las guías de acceso y conectividad reducen escalaciones.</p>
+                            </div>
+                        </div>
+                        <div class="ind-improve-item">
+                            <span class="ind-improve-icon">💡</span>
+                            <div>
+                                <strong>Foco en proveedores de nivel 3</strong>
+                                <p>SLA de resolución en 92 %. Revisar acuerdos de cobertura y tiempos de activación con proveedores.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="ind-link-arrow">Ver plan de mejora →</a>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="ind-footer">
+                <span>Nexo Service Desk · Red Salud Integral</span>
+                <span>Datos de demostración · Sin información de pacientes</span>
+            </footer>
+        </div>
+    </main>
+
+    <!-- CHATBOT INDICADORES -->
+    <div class="ind-chat-wrapper">
+        <div class="ind-chat-window" id="indChatWindow">
+            <div class="ind-chat-header">
+                <div>
+                    <h4>Analista de Datos Nexo</h4>
+                    <span>🟢 Consultando métricas</span>
+                </div>
+                <button id="indCloseChat" class="ind-close-btn">×</button>
+            </div>
+            <div class="ind-chat-body" id="indChatBody">
+                <div class="ind-msg ind-msg-bot">
+                    Hola Ana. ¿Necesitas interpretar algún indicador de este panel?
+                </div>
+                <div class="ind-quick-replies" id="indQuickReplies">
+                    <button onclick="indSendReply('¿Por qué bajó el tiempo de resolución?')">¿Por qué bajó la resolución?</button>
+                    <button onclick="indSendReply('Detalles del SLA de N3')">Detalles SLA N3</button>
+                </div>
+            </div>
+            <form class="ind-chat-input" id="indChatForm">
+                <input type="text" id="indChatInput" placeholder="Pregunta sobre los datos..." autocomplete="off">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+        <button class="ind-chat-fab" id="indOpenChat">📊</button>
+    </div>
+
+    <script src="./indicadores.js"></script>
+</body>
+</html>

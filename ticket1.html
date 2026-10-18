@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Ticket - Nexo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Exclusivo -->
+    <link rel="stylesheet" href="./ticket1.css">
+</head>
+<body>
+
+    <!-- SIDEBAR (Estructura base idéntica) -->
+    <aside class="td-sidebar">
+        <div class="td-logo-area">
+            <div class="td-logo-icon">🛡️</div>
+            <div>
+                <h1>nexo</h1>
+                <p>TECNOLOGÍA QUE CUIDA</p>
+            </div>
+        </div>
+
+        <div class="td-tenant-box">
+            <div class="td-tenant-icon">🏥</div>
+            <div>
+                <span class="td-label-small">PORTAL DE SOPORTE TI</span>
+                <strong>Red Salud Integral</strong>
+                <span class="td-tenant-desc">12 sedes · Entorno de demostración</span>
+            </div>
+        </div>
+
+        <nav class="td-nav">
+            <span class="td-nav-title">ESPACIO DE OPERACIÓN</span>
+            <a href="dashboard.html" class="td-nav-link">
+                <span class="td-icon">⊞</span> Inicio
+            </a>
+            <!-- Enlace Activo a Tickets -->
+            <a href="tickets_v2.html" class="td-nav-link td-active">
+                <span class="td-icon">🎫</span> Tickets <span class="td-badge-count">38</span>
+            </a>
+            <a href="atencion-critica.html" class="td-nav-link">
+                <span class="td-icon">🚨</span> Atención crítica
+            </a>
+            <a href="indicadores.html" class="td-nav-link">
+                <span class="td-icon">📊</span> Indicadores
+            </a>
+            <div class="td-divider"></div>
+            <a href="#" class="td-nav-link">
+                <span class="td-icon">📚</span> Base de conocimiento
+            </a>
+            <a href="#" class="td-nav-link">
+                <span class="td-icon">⚙️</span> Configuración
+            </a>
+        </nav>
+
+        <div class="td-sidebar-bottom">
+            <div class="td-support-box">
+                <h4>Contigo, las 24 horas</h4>
+                <p>El equipo de guardia está disponible para ayudarte.</p>
+                <a href="#">Contactar soporte →</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="td-main">
+        <!-- TOPBAR -->
+        <header class="td-topbar">
+            <div class="td-breadcrumb">Portal de servicio / <a href="tickets_v2.html" class="td-link">Tickets</a> / <strong>INC-2481</strong></div>
+            <div class="td-topbar-actions">
+                <span class="td-status-live">● Soporte 24/7 activo</span>
+                <span class="td-date">16 oct 2026 · 22:40</span>
+                <div class="td-noti">🔔</div>
+                <div class="td-user">
+                    <div class="td-avatar">AV</div>
+                    <div>
+                        <strong>Ana Vargas</strong>
+                        <span>Coordinadora TI</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="td-content-wrapper">
+            <!-- HEADER DEL TICKET -->
+            <div class="td-ticket-header">
+                <a href="tickets_v2.html" class="td-back-link">← Volver a tickets</a>
+                <div class="td-header-top">
+                    <div>
+                        <span class="td-ticket-ref">INC-2481 · INCIDENTE MAYOR</span>
+                        <h1 class="td-ticket-title">Intermitencia en visor de imágenes PACS</h1>
+                        <p class="td-ticket-meta">Hospital Central · Radiología · Registrado el 16 oct 2026 a las 22:12</p>
+                        
+                        <div class="td-badges-row">
+                            <span class="td-pill td-pill-red">● P1 · Crítica</span>
+                            <span class="td-pill td-pill-blue">● En curso</span>
+                            <span class="td-pill td-pill-purple">● Nivel 2 · Especialistas</span>
+                            <span class="td-time-meta">28 min transcurridos · 1 servicio afectado · 3 equipos reportados</span>
+                        </div>
+                    </div>
+                    <div class="td-header-actions">
+                        <button class="td-btn-outline">↗ Escalar</button>
+                        <button class="td-btn-primary">✓ Actualizar estado</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRID PRINCIPAL (2 Columnas) -->
+            <div class="td-layout-grid">
+                
+                <!-- COLUMNA IZQUIERDA -->
+                <div class="td-left-col">
+                    
+                    <!-- Qué está ocurriendo -->
+                    <div class="td-card">
+                        <h3 class="td-card-title">Qué está ocurriendo</h3>
+                        <p class="td-desc-text">El visor PACS presenta intermitencias al recuperar estudios en tres estaciones de radiología. El equipo clínico reporta esperas superiores a 60 segundos; la adquisición de imágenes continúa disponible.</p>
+                        
+                        <div class="td-alert-box td-alert-warm">
+                            <span class="td-alert-icon">🤍</span>
+                            <div>
+                                <strong>Impacto en el diagnóstico por imágenes</strong>
+                                <p>Contingencia activa: visor local de respaldo. No se ha confirmado pérdida de estudios.</p>
+                            </div>
+                        </div>
+
+                        <div class="td-attachment">
+                            <span>📎 captura-error-pacs.png · 248 KB</span>
+                            <small>Adjunto técnico anonimizado</small>
+                        </div>
+                    </div>
+
+                    <!-- Historial y Trazabilidad -->
+                    <div class="td-card">
+                        <div class="td-card-header">
+                            <h3 class="td-card-title">Historial y trazabilidad</h3>
+                            <a href="#" class="td-link">Descargar bitácora ↓</a>
+                        </div>
+                        
+                        <!-- Tabs -->
+                        <div class="td-tabs">
+                            <button class="td-tab td-tab-active">Toda la actividad <span class="td-tab-count">5</span></button>
+                            <button class="td-tab">Notas internas <span class="td-tab-count">2</span></button>
+                            <button class="td-tab">Cambios de estado</button>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="td-timeline">
+                            <!-- Item 1 -->
+                            <div class="td-timeline-item td-tl-blue">
+                                <div class="td-tl-time">22:36</div>
+                                <div class="td-tl-content">
+                                    <div class="td-tl-title-row">
+                                        <strong>Escalado a nivel 2 · Diego Ruiz</strong>
+                                        <span class="td-tl-tag">Escalamiento</span>
+                                    </div>
+                                    <p>N1 agotó diagnóstico inicial. N2 revisa la cola DICOM y la conexión con el servidor PACS.</p>
+                                </div>
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="td-timeline-item td-tl-green">
+                                <div class="td-tl-time">22:22</div>
+                                <div class="td-tl-content">
+                                    <div class="td-tl-title-row">
+                                        <strong>Contingencia confirmada · Laura Méndez</strong>
+                                        <span class="td-tl-tag">Nota interna</span>
+                                    </div>
+                                    <p>Radiología activa el visor local de respaldo. El referente del área confirma continuidad parcial.</p>
+                                </div>
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="td-timeline-item td-tl-gray">
+                                <div class="td-tl-time">22:18</div>
+                                <div class="td-tl-content">
+                                    <div class="td-tl-title-row">
+                                        <strong>Diagnóstico inicial · Laura Méndez</strong>
+                                        <span class="td-tl-tag">En curso</span>
+                                    </div>
+                                    <p>Se valida red local. La latencia se concentra en la recuperación de estudios del PACS.</p>
+                                </div>
+                            </div>
+                            <!-- Item 4 -->
+                            <div class="td-timeline-item td-tl-green">
+                                <div class="td-tl-time">22:14</div>
+                                <div class="td-tl-content">
+                                    <div class="td-tl-title-row">
+                                        <strong>Primera respuesta · Guardia N1</strong>
+                                        <span class="td-tl-tag">SLA cumplido</span>
+                                    </div>
+                                    <p>Se contacta al referente de radiología y se confirma el impacto. Respuesta en 2 min.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Añadir Seguimiento -->
+                    <div class="td-card td-followup-card">
+                        <h3 class="td-card-title">Añadir seguimiento</h3>
+                        <div class="td-followup-toggle">
+                            <span>🔒 Nota interna</span> <small>· Solo equipo de soporte</small>
+                        </div>
+                        <textarea class="td-textarea" placeholder="Describe el avance, las acciones realizadas y el siguiente paso..."></textarea>
+                        <div class="td-followup-actions">
+                            <button class="td-btn-icon">📎</button>
+                            <button class="td-btn-primary">✈️ Guardar seguimiento</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- COLUMNA DERECHA -->
+                <div class="td-right-col">
+                    
+                    <!-- Compromiso de Atención (SLA) -->
+                    <div class="td-card td-sla-card">
+                        <div class="td-sla-header">
+                            <h4>Compromiso de atención</h4>
+                            <span class="td-icon-time">⏱️</span>
+                        </div>
+                        <p class="td-sla-label">Tiempo restante para resolución</p>
+                        <h2 class="td-sla-timer">1 h 32 min</h2>
+                        
+                        <!-- Barra de progreso -->
+                        <div class="td-progress-bar">
+                            <div class="td-progress-fill"></div>
+                        </div>
+                        <div class="td-sla-meta">
+                            <span>P1 · Objetivo: 2 h</span>
+                            <strong>Vence a las 00:12</strong>
+                        </div>
+
+                        <div class="td-sla-check">
+                            <span>✓ Primera respuesta: 2 min / objetivo 5 min</span>
+                        </div>
+                        <p class="td-sla-note">Reloj activo durante la contingencia. Próxima comunicación: 22:45.</p>
+                    </div>
+
+                    <!-- Responsables -->
+                    <div class="td-card">
+                        <h3 class="td-card-title">Responsables</h3>
+                        
+                        <div class="td-responsible-group">
+                            <label>Asignado a</label>
+                            <select class="td-select">
+                                <option>Diego Ruiz · Especialista N2</option>
+                            </select>
+                        </div>
+
+                        <div class="td-ref-contact">
+                            <span class="td-icon">🏥</span>
+                            <div>
+                                <strong>Mesa de radiología</strong>
+                                <p>Referente del área · Ext. 4201</p>
+                            </div>
+                        </div>
+                        
+                        <p class="td-coordinator">Coordinación del incidente: <strong>Ana Vargas</strong></p>
+                    </div>
+
+                    <!-- Ruta de Escalamiento -->
+                    <div class="td-card">
+                        <div class="td-card-header">
+                            <h3 class="td-card-title">Ruta de escalamiento</h3>
+                            <a href="#" class="td-link">Ver política ↗</a>
+                        </div>
+                        
+                        <div class="td-escalation-path">
+                            <!-- Paso 1 -->
+                            <div class="td-step td-step-done">
+                                <div class="td-step-badge">N1</div>
+                                <div class="td-step-info">
+                                    <strong>Mesa de ayuda</strong>
+                                    <small>Completado · 22:14–22:36</small>
+                                </div>
+                            </div>
+                            <!-- Paso 2 -->
+                            <div class="td-step td-step-active">
+                                <div class="td-step-badge">N2</div>
+                                <div class="td-step-info">
+                                    <strong>Especialistas TI</strong>
+                                    <small>Activo · Diego Ruiz desde 22:36</small>
+                                </div>
+                            </div>
+                            <!-- Paso 3 -->
+                            <div class="td-step td-step-pending">
+                                <div class="td-step-badge">N3</div>
+                                <div class="td-step-info">
+                                    <strong>Proveedor PACS</strong>
+                                    <small>En reserva · Integraciones médicas</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="td-escalation-note">Escalar a N3 a las 23:00 si no hay recuperación. Se conserva responsable, bitácora y SLA.</p>
+                        
+                        <button class="td-btn-outline td-btn-full">↗ Solicitar apoyo de nivel 3</button>
+                    </div>
+
+                </div>
+            </div>
+            
+            <footer class="td-footer">
+                <span>Nexo Service Desk · Red Salud Integral</span>
+                <span>Datos de demostración · Sin información de pacientes</span>
+            </footer>
+        </div>
+    </main>
+
+    <!-- CHATBOT FLOTANTE (Detalle) -->
+    <div class="td-chat-wrapper">
+        <div class="td-chat-window" id="tdChatWindow">
+            <div class="td-chat-header">
+                <div>
+                    <h4>Asistente de Incidentes</h4>
+                    <span>🟢 Analizando INC-2481</span>
+                </div>
+                <button id="tdCloseChat" class="td-close-btn">×</button>
+            </div>
+            <div class="td-chat-body" id="tdChatBody">
+                <div class="td-msg td-msg-bot">
+                    Estás viendo el detalle del incidente PACS. ¿Necesitas ayuda para redactar una nota o entender el SLA?
+                </div>
+                <div class="td-quick-replies" id="tdQuickReplies">
+                    <button onclick="tdSendReply('¿Cuánto tiempo de SLA queda?')">¿Cuánto SLA queda?</button>
+                    <button onclick="tdSendReply('Sugerir nota de escalamiento')">Sugerir nota</button>
+                </div>
+            </div>
+            <form class="td-chat-input" id="tdChatForm">
+                <input type="text" id="tdChatInput" placeholder="Escribe al asistente..." autocomplete="off">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+        <button class="td-chat-fab" id="tdOpenChat">🎫</button>
+    </div>
+
+    <script src="./ticket1.js"></script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Nexo</title>
+    <link rel="stylesheet" href="./sytle1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">🛡️</div>
+                <div>
+                    <h1>nexo</h1>
+                    <p>TECNOLOGÍA QUE CUIDA</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Selector de Red -->
+        <div class="tenant-selector">
+            <div class="tenant-icon">🏥</div>
+            <div>
+                <p class="tenant-label">PORTAL DE SOPORTE TI</p>
+                <strong>Red Salud Integral</strong>
+                <span>12 sedes · Entorno de demostración</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <p class="nav-section">ESPACIO DE OPERACIÓN</p>
+            <a href="inicio.html" class="nav-item active">
+                <span class="icon">⊞</span> Inicio
+            </a>
+            <!-- Enlaces temporales solicitados -->
+            <a href="tickets.html" class="nav-item">
+                <span class="icon">🎫</span> Tickets <span class="badge">38</span>
+            </a>
+            <a href="atencion-critica.html" class="nav-item">
+                <span class="icon">⚠️</span> Atención crítica
+            </a>
+            <a href="indicadores.html" class="nav-item">
+                <span class="icon">📊</span> Indicadores
+            </a>
+            <div class="nav-divider"></div>
+            <a href="#" class="nav-item">
+                <span class="icon">📚</span> Base de conocimiento
+            </a>
+            <a href="#" class="nav-item">
+                <span class="icon">⚙️</span> Configuración
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="support-card-vibrant">
+                <h4>Contigo, las 24 horas</h4>
+                <p>El equipo de guardia está disponible para ayudarte.</p>
+                <a href="#" class="btn-link-warm">Contactar soporte →</a>
+            </div>
+            <a href="#" class="nav-item" style="margin-top: 10px;">
+                <span class="icon">❓</span> Ayuda y privacidad
+            </a>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- TOPBAR -->
+        <header class="topbar">
+            <div class="breadcrumbs">Portal de servicio / <strong>Inicio</strong></div>
+            <div class="topbar-right">
+                <span class="status-badge">● Soporte 24/7 activo</span>
+                <span class="datetime">16 oct 2026 · 22:40</span>
+                <div class="notification-icon">🔔</div>
+                <div class="user-profile-top">
+                    <div class="avatar">AV</div>
+                    <div>
+                        <strong>Ana Vargas</strong>
+                        <span>Coordinadora TI</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-container">
+            <!-- Header Title -->
+            <div class="page-header-vibrant">
+                <div>
+                    <span class="section-label">CENTRO DE OPERACIONES</span>
+                    <h2>Buenas noches, Ana</h2>
+                    <p>Cuidamos la tecnología para que tu equipo pueda cuidar de las personas.</p>
+                </div>
+                <button class="btn-primary-vibrant">+ Nuevo ticket</button>
+            </div>
+
+            <!-- Banner de Alerta -->
+            <div class="alert-banner">
+                <div class="alert-icon">⚠️</div>
+                <div class="alert-content">
+                    <h4>1 incidente crítico requiere seguimiento</h4>
+                    <p>INC-2481 · Intermitencia en PACS · Hospital Central · Nivel 2 en atención</p>
+                </div>
+                <div class="alert-sla">● SLA: 1 h 32 min</div>
+                <button class="btn-alert">Ver incidente ↗</button>
+            </div>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card border-blue">
+                    <div class="kpi-header">
+                        <p>Tickets abiertos</p>
+                        <span>🎫</span>
+                    </div>
+                    <h3>38</h3>
+                    <span class="kpi-sub">59 recibidos hoy</span>
+                </div>
+                <div class="kpi-card border-red">
+                    <div class="kpi-header">
+                        <p>Prioridad crítica</p>
+                        <span>🚨</span>
+                    </div>
+                    <h3 class="text-red">1</h3>
+                    <span class="kpi-sub">7 de prioridad alta</span>
+                </div>
+                <div class="kpi-card border-green">
+                    <div class="kpi-header">
+                        <p>SLA cumplido · octubre</p>
+                        <span>🛡️</span>
+                    </div>
+                    <h3>96,8 %</h3>
+                    <span class="kpi-sub text-green">↑ 1,6 pp frente a septiembre</span>
+                </div>
+                <div class="kpi-card border-orange">
+                    <div class="kpi-header">
+                        <p>Primera respuesta · hoy</p>
+                        <span>⏱️</span>
+                    </div>
+                    <h3>4 min</h3>
+                    <span class="kpi-sub">Objetivo general: ≤ 10 min</span>
+                </div>
+            </div>
+
+            <!-- Grid Principal (2 Columnas) -->
+            <div class="main-grid">
+                <!-- Columna Izquierda -->
+                <div class="left-column">
+                    <!-- Estado de Servicios -->
+                    <div class="card card-vibrant">
+                        <div class="card-header">
+                            <h4>Estado de servicios médicos</h4>
+                            <a href="#" class="link">Ver monitoreo ↗</a>
+                        </div>
+                        <div class="status-legend">
+                            <span class="badge-status green">● 5 operativos</span>
+                            <span class="badge-status orange">● 1 degradado</span>
+                            <span class="text-muted">Actualizado a las 22:40</span>
+                        </div>
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <span>❤️ Historia clínica electrónica</span>
+                                <small>Operativo</small>
+                            </div>
+                            <div class="service-item degraded">
+                                <span>🖼️ Imágenes médicas · PACS</span>
+                                <small>Degradado</small>
+                            </div>
+                            <div class="service-item">
+                                <span>🧪 Laboratorio · LIS</span>
+                                <small>Operativo</small>
+                            </div>
+                            <div class="service-item">
+                                <span>💊 Farmacia y prescripción</span>
+                                <small>Operativo</small>
+                            </div>
+                            <div class="service-item">
+                                <span>🌐 Red y conectividad</span>
+                                <small>Operativo</small>
+                            </div>
+                            <div class="service-item">
+                                <span>📅 Admisión y citas</span>
+                                <small>Operativo</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tu foco en este turno -->
+                    <div class="card card-vibrant">
+                        <div class="card-header">
+                            <h4>Tu foco en este turno</h4>
+                            <a href="#" class="link">Todos los tickets →</a>
+                        </div>
+                        <div class="focus-list">
+                            <div class="focus-item">
+                                <div class="focus-info">
+                                    <strong>INC-2481</strong>
+                                    <p>Intermitencia en visor de imágenes PACS</p>
+                                    <span class="text-muted">Diego Ruiz · N2</span>
+                                </div>
+                                <div class="focus-status">
+                                    <span class="badge-priority red">● P1 · Crítica</span>
+                                    <small>SLA restante · 1 h 32 min</small>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <div class="focus-info">
+                                    <strong>INC-2478</strong>
+                                    <p>Sin acceso a historia clínica en consulta</p>
+                                    <span class="text-muted">Laura Méndez · N1</span>
+                                </div>
+                                <div class="focus-status">
+                                    <span class="badge-priority orange">● P2 · Alta</span>
+                                    <small>SLA restante · 2 h 05 min</small>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <div class="focus-info">
+                                    <strong>INC-2472</strong>
+                                    <p>Impresora de etiquetas de laboratorio</p>
+                                    <span class="text-muted">Carlos Peña · N2</span>
+                                </div>
+                                <div class="focus-status">
+                                    <span class="badge-priority orange">● P2 · Alta</span>
+                                    <small>SLA restante · 3 h 10 min</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div class="right-column">
+                    <!-- Guardia 24/7 (Reemplaza el cuadro verde de la imagen por azul vibrante) -->
+                    <div class="card card-guard">
+                        <div class="guard-header">
+                            <h4>🌙 Siempre hay alguien al otro lado.</h4>
+                            <span class="badge-white">● En línea</span>
+                        </div>
+                        <p>Turno nocturno · 22:00–06:00<br>3 especialistas + respaldo de nivel 3</p>
+                        <div class="guard-team">
+                            <span class="avatar-tiny">LM</span>
+                            <span class="avatar-tiny">DR</span>
+                            <span class="avatar-tiny">GP</span>
+                            <span class="text-white">Laura M. y equipo de guardia</span>
+                        </div>
+                        <button class="btn-white" onclick="document.getElementById('toggleChat').click()">
+                            💬 Contactar guardia 24/7
+                        </button>
+                    </div>
+
+                    <!-- Últimos movimientos -->
+                    <div class="card card-vibrant">
+                        <div class="card-header">
+                            <h4>Últimos movimientos</h4>
+                        </div>
+                        <div class="movements-list">
+                            <div class="movement-item">
+                                <span class="time">22:36</span>
+                                <div>
+                                    <p><strong>PACS escalado a nivel 2</strong></p>
+                                    <span>INC-2481 · Diego Ruiz</span>
+                                </div>
+                            </div>
+                            <div class="movement-item">
+                                <span class="time">22:28</span>
+                                <div>
+                                    <p><strong>Acceso a farmacia restablecido</strong></p>
+                                    <span>INC-2469 · Resuelto</span>
+                                </div>
+                            </div>
+                            <div class="movement-item">
+                                <span class="time">22:14</span>
+                                <div>
+                                    <p><strong>Guardia confirma incidente crítico</strong></p>
+                                    <span>INC-2481 · Respuesta en 2 min</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CHATBOT FLOTANTE -->
+    <div class="chatbot-wrapper">
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div>
+                    <h4>Asistente Nexo</h4>
+                    <span>🟢 En línea</span>
+                </div>
+                <button id="closeChat" class="close-btn">×</button>
+            </div>
+            <div class="chatbot-body" id="chatBody">
+                <div class="message bot-message">
+                    Hola Ana, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?
+                </div>
+                <div class="quick-replies" id="quickReplies">
+                    <button class="quick-reply-btn" onclick="sendQuickReply('Estado de SLA')">Estado de SLA</button>
+                    <button class="quick-reply-btn" onclick="sendQuickReply('Crear ticket')">Crear ticket</button>
+                    <button class="quick-reply-btn" onclick="sendQuickReply('Hablar con guardia')">Hablar con guardia</button>
+                </div>
+            </div>
+            <form class="chatbot-input" id="chatForm">
+                <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." autocomplete="off">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+        <button class="chatbot-toggle" id="toggleChat">💬</button>
+    </div>
+
+    <script src="./inicio.js"></script>
+</body>
+</html>

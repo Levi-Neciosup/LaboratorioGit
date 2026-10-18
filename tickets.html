@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tickets - Nexo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- CSS Exclusivo para esta vista -->
+    <link rel="stylesheet" href="./tickets.css">
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="tk-sidebar">
+        <div class="tk-logo-area">
+            <div class="tk-logo-icon">🛡️</div>
+            <div>
+                <h1>nexo</h1>
+                <p>TECNOLOGÍA QUE CUIDA</p>
+            </div>
+        </div>
+
+        <div class="tk-tenant-box">
+            <div class="tk-tenant-icon">🏥</div>
+            <div>
+                <span class="tk-label-small">PORTAL DE SOPORTE TI</span>
+                <strong>Red Salud Integral</strong>
+                <span class="tk-tenant-desc">12 sedes · Entorno de demostración</span>
+            </div>
+        </div>
+
+        <nav class="tk-nav">
+            <span class="tk-nav-title">ESPACIO DE OPERACIÓN</span>
+            <a href="dashboard.html" class="tk-nav-link">
+                <span class="tk-icon">⊞</span> Inicio
+            </a>
+            <!-- Enlace Activo -->
+            <a href="tickets_v2.html" class="tk-nav-link tk-active">
+                <span class="tk-icon">🎫</span> Tickets <span class="tk-badge-count">38</span>
+            </a>
+            <a href="atencion-critica.html" class="tk-nav-link">
+                <span class="tk-icon">🚨</span> Atención crítica
+            </a>
+            <a href="#" class="tk-nav-link">
+                <span class="tk-icon">📊</span> Indicadores
+            </a>
+            <div class="tk-divider"></div>
+            <a href="#" class="tk-nav-link">
+                <span class="tk-icon">📚</span> Base de conocimiento
+            </a>
+            <a href="#" class="tk-nav-link">
+                <span class="tk-icon">⚙️</span> Configuración
+            </a>
+        </nav>
+
+        <div class="tk-sidebar-bottom">
+            <div class="tk-support-box">
+                <h4>Contigo, las 24 horas</h4>
+                <p>El equipo de guardia está disponible para ayudarte.</p>
+                <a href="#">Contactar soporte →</a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="tk-main">
+        <!-- TOPBAR -->
+        <header class="tk-topbar">
+            <div class="tk-breadcrumb">Portal de servicio / <strong>Tickets</strong></div>
+            <div class="tk-topbar-actions">
+                <span class="tk-status-live">● Soporte 24/7 activo</span>
+                <span class="tk-date">16 oct 2026 · 22:40</span>
+                <div class="tk-noti">🔔</div>
+                <div class="tk-user">
+                    <div class="tk-avatar">AV</div>
+                    <div>
+                        <strong>Ana Vargas</strong>
+                        <span>Coordinadora TI</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="tk-content-wrapper">
+            <!-- HEADER PAGE -->
+            <div class="tk-page-header">
+                <div>
+                    <span class="tk-section-label">GESTIÓN Y SEGUIMIENTO</span>
+                    <h2>Cada caso, bajo control</h2>
+                    <p>Registra, prioriza y acompaña cada solicitud hasta su resolución.</p>
+                </div>
+                <div class="tk-header-buttons">
+                    <button class="tk-btn-outline">📥 Exportar</button>
+                    <button class="tk-btn-primary">+ Nuevo ticket</button>
+                </div>
+            </div>
+
+            <!-- TABS VIBRANTES -->
+            <div class="tk-tabs">
+                <button class="tk-tab tk-tab-active">Todos <span class="tk-tab-badge">1.248</span></button>
+                <button class="tk-tab">Abiertos <span class="tk-tab-badge">38</span></button>
+                <button class="tk-tab">Mis tickets <span class="tk-tab-badge">8</span></button>
+                <button class="tk-tab">Sin asignar <span class="tk-tab-badge">3</span></button>
+                <button class="tk-tab">Resueltos <span class="tk-tab-badge">1.210</span></button>
+            </div>
+
+            <!-- TABLA CARD -->
+            <div class="tk-card tk-table-card">
+                <!-- Filtros -->
+                <div class="tk-filters">
+                    <div class="tk-search">
+                        <span class="tk-search-icon">🔍</span>
+                        <input type="text" placeholder="Buscar por ID, servicio o descripción...">
+                    </div>
+                    <div class="tk-dropdowns">
+                        <select class="tk-select"><option>Prioridad</option></select>
+                        <select class="tk-select"><option>Estado</option></select>
+                        <select class="tk-select"><option>Sede</option></select>
+                        <select class="tk-select"><option>Responsable</option></select>
+                    </div>
+                </div>
+
+                <div class="tk-table-meta">
+                    <span>Octubre 2026 · Todas las sedes · 1.248 resultados</span>
+                    <a href="#" class="tk-link">Guardar vista</a>
+                </div>
+
+                <!-- Tabla Responsive -->
+                <div class="tk-table-scroll">
+                    <table class="tk-data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="tk-checkbox"></th>
+                                <th>TICKET / SERVICIO</th>
+                                <th>PRIORIDAD</th>
+                                <th>ESTADO</th>
+                                <th>RESPONSABLE</th>
+                                <th>SLA RESTANTE ↓</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <!-- FILA CRÍTICA -->
+                            <tr class="tk-row-critical">
+                                <td><input type="checkbox" class="tk-checkbox"></td>
+                                <td>
+                                    <div class="tk-ticket-info">
+                                        <span class="tk-ticket-id">INC-2481 <span class="tk-badge-alert">● Impacto clínico</span></span>
+                                        <!-- AQUÍ ESTÁ EL ENLACE -->
+                                        <a href="ticket1.html" style="text-decoration: none; color: inherit;">
+                                            <strong>Intermitencia en visor de imágenes PACS</strong>
+                                        </a>
+                                        <small>Hospital Central · Radiología</small>
+                                    </div>
+                                </td>
+                                <td><span class="tk-pill tk-pill-red">● P1 · Crítica</span></td>
+                                <td><span class="tk-pill tk-pill-blue">● En curso</span></td>
+                                <td>
+                                    <strong class="tk-user-name">Diego Ruiz</strong>
+                                    <small class="tk-user-role">N2 · Soporte TI</small>
+                                </td>
+                                <td><span class="tk-sla tk-sla-critical">⏱ 1 h 32 min</span></td>
+                            </tr>
+                            
+                            <!-- FILA ALTA -->
+                            <tr>
+                                <td><input type="checkbox" class="tk-checkbox"></td>
+                                <td>
+                                    <div class="tk-ticket-info">
+                                        <span class="tk-ticket-id">INC-2478</span>
+                                        <strong>Sin acceso a historia clínica en consulta</strong>
+                                        <small>Clínica Norte · Consulta externa</small>
+                                    </div>
+                                </td>
+                                <td><span class="tk-pill tk-pill-orange">● P2 · Alta</span></td>
+                                <td><span class="tk-pill tk-pill-blue">● En curso</span></td>
+                                <td>
+                                    <strong class="tk-user-name">Laura Méndez</strong>
+                                    <small class="tk-user-role">N1 · Soporte TI</small>
+                                </td>
+                                <td><span class="tk-sla">⏱ 2 h 05 min</span></td>
+                            </tr>
+
+                            <!-- FILA ESCALADA -->
+                            <tr>
+                                <td><input type="checkbox" class="tk-checkbox"></td>
+                                <td>
+                                    <div class="tk-ticket-info">
+                                        <span class="tk-ticket-id">INC-2472</span>
+                                        <strong>Impresora de etiquetas sin conexión</strong>
+                                        <small>Hospital Central · Laboratorio</small>
+                                    </div>
+                                </td>
+                                <td><span class="tk-pill tk-pill-orange">● P2 · Alta</span></td>
+                                <td><span class="tk-pill tk-pill-yellow">● Escalado</span></td>
+                                <td>
+                                    <strong class="tk-user-name">Carlos Peña</strong>
+                                    <small class="tk-user-role">N2 · Soporte TI</small>
+                                </td>
+                                <td><span class="tk-sla">⏱ 3 h 10 min</span></td>
+                            </tr>
+
+                            <!-- FILA MEDIA -->
+                            <tr>
+                                <td><input type="checkbox" class="tk-checkbox"></td>
+                                <td>
+                                    <div class="tk-ticket-info">
+                                        <span class="tk-ticket-id">INC-2470</span>
+                                        <strong>Lentitud en agenda de especialidades</strong>
+                                        <small>Clínica Sur · Admisión</small>
+                                    </div>
+                                </td>
+                                <td><span class="tk-pill tk-pill-lightblue">● P3 · Media</span></td>
+                                <td><span class="tk-pill tk-pill-gray">● Pendiente</span></td>
+                                <td>
+                                    <strong class="tk-user-name">Sofía Torres</strong>
+                                    <small class="tk-user-role">N1 · Soporte TI</small>
+                                </td>
+                                <td><span class="tk-sla">⏱ 6 h 20 min</span></td>
+                            </tr>
+
+                            <!-- FILA RESUELTA -->
+                            <tr class="tk-row-resolved">
+                                <td><input type="checkbox" class="tk-checkbox"></td>
+                                <td>
+                                    <div class="tk-ticket-info">
+                                        <span class="tk-ticket-id">INC-2469</span>
+                                        <strong>Error de acceso al módulo de farmacia</strong>
+                                        <small>Clínica Norte · Farmacia</small>
+                                    </div>
+                                </td>
+                                <td><span class="tk-pill tk-pill-orange">● P2 · Alta</span></td>
+                                <td><span class="tk-pill tk-pill-green">● Resuelto</span></td>
+                                <td>
+                                    <strong class="tk-user-name">Laura Méndez</strong>
+                                    <small class="tk-user-role">N1 · Soporte TI</small>
+                                </td>
+                                <td><span class="tk-sla tk-sla-success">✔ Cumplido</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Paginación -->
+                <div class="tk-pagination">
+                    <span>Mostrando 1–5 de 1.248 tickets</span>
+                    <div class="tk-page-controls">
+                        <select class="tk-select"><option>6 por página</option></select>
+                        <button class="tk-page-btn">←</button>
+                        <button class="tk-page-btn tk-page-active">1</button>
+                        <button class="tk-page-btn">2</button>
+                        <button class="tk-page-btn">3</button>
+                        <button class="tk-page-btn">→</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORMULARIO RÁPIDO -->
+            <div class="tk-card tk-quick-form">
+                <div class="tk-form-header">
+                    <h3>Registro rápido de ticket</h3>
+                    <a href="#" class="tk-link">Abrir formulario completo ↗</a>
+                </div>
+                <form id="tkForm">
+                    <div class="tk-form-grid">
+                        <div class="tk-input-group">
+                            <label>Asunto *</label>
+                            <input type="text" placeholder="Describe brevemente el incidente" required>
+                        </div>
+                        <div class="tk-input-group">
+                            <label>Servicio afectado *</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccionar servicio</option>
+                                <option>Historia clínica electrónica</option>
+                                <option>Imágenes médicas · PACS</option>
+                            </select>
+                        </div>
+                        <div class="tk-input-group">
+                            <label>Sede *</label>
+                            <select required>
+                                <option value="" disabled selected>Seleccionar sede</option>
+                                <option>Hospital Central</option>
+                                <option>Clínica Norte</option>
+                            </select>
+                        </div>
+                        <div class="tk-input-group">
+                            <label>Prioridad *</label>
+                            <select required>
+                                <option>P3 · Media</option>
+                                <option>P2 · Alta</option>
+                                <option>P1 · Crítica</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="tk-form-footer">
+                        <p class="tk-form-warning">Adjunta evidencia sin datos de pacientes. El SLA inicia al registrar el caso. <br><strong>¿Afecta la atención médica? Marca P1 y activa el canal urgente 24/7.</strong></p>
+                        <div class="tk-form-buttons">
+                            <button type="button" class="tk-btn-outline">📎 Adjuntar</button>
+                            <button type="submit" class="tk-btn-primary" id="tkSubmitBtn">Registrar ticket</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- CHATBOT FLOTANTE (Tickets) -->
+    <div class="tk-chat-wrapper">
+        <div class="tk-chat-window" id="tkChatWindow">
+            <div class="tk-chat-header">
+                <div>
+                    <h4>Soporte de Tickets</h4>
+                    <span>🟢 Asistente Virtual</span>
+                </div>
+                <button id="tkCloseChat" class="tk-close-btn">×</button>
+            </div>
+            <div class="tk-chat-body" id="tkChatBody">
+                <div class="tk-msg tk-msg-bot">
+                    Hola Ana. ¿Necesitas ayuda con la gestión de tickets?
+                </div>
+                <div class="tk-quick-replies" id="tkQuickReplies">
+                    <button onclick="tkSendReply('¿Cómo registro un ticket P1?')">¿Cómo registro un ticket P1?</button>
+                    <button onclick="tkSendReply('Ver estado de mis tickets')">Ver estado de mis tickets</button>
+                </div>
+            </div>
+            <form class="tk-chat-input" id="tkChatForm">
+                <input type="text" id="tkChatInput" placeholder="Escribe tu consulta..." autocomplete="off">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+        <button class="tk-chat-fab" id="tkOpenChat">🎫</button>
+    </div>
+
+    <script src="./tickets.js"></script>
+</body>
+</html>
