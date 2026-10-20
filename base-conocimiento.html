@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexo - Base de Conocimiento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* =========================================
+           VARIABLES DE DISEÑO (TEMAS)
+           ========================================= */
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-blue-hover: #1e40af;
+            --secondary-blue: #eff6ff;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --sidebar-bg: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --danger-red: #ef4444;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --input-bg: #ffffff;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        [data-theme="dark"] {
+            --primary-blue: #3b82f6;
+            --primary-blue-hover: #60a5fa;
+            --secondary-blue: #1e293b;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --sidebar-bg: #1e293b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #334155;
+            --input-bg: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* =========================================
+           HEADER
+           ========================================= */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-color);
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            background-color: var(--primary-blue);
+            color: white;
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 20px;
+        }
+        .logo-text h1 { font-size: 20px; color: var(--primary-blue); line-height: 1; }
+        .logo-text span { font-size: 9px; letter-spacing: 1px; color: var(--text-muted); font-weight: 600; }
+
+        .header-right { display: flex; align-items: center; gap: 24px; color: var(--text-muted); font-size: 13px; }
+        .status-badge {
+            display: flex; align-items: center; gap: 6px;
+            background-color: #ecfdf5; color: var(--success-green);
+            padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 12px;
+        }
+        [data-theme="dark"] .status-badge { background-color: rgba(16, 185, 129, 0.2); }
+        .status-badge .dot { width: 8px; height: 8px; background-color: var(--success-green); border-radius: 50%; animation: pulse 2s infinite; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .user-profile { display: flex; align-items: center; gap: 10px; border-left: 1px solid var(--border-color); padding-left: 24px; }
+        .avatar {
+            background-color: var(--warning-orange); color: white;
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; font-weight: bold;
+        }
+        .user-info { display: flex; flex-direction: column; }
+        .user-info .name { font-weight: 600; color: var(--text-main); }
+        .user-info .role { font-size: 11px; }
+
+        /* =========================================
+           LAYOUT
+           ========================================= */
+        .main-layout { display: flex; min-height: calc(100vh - 70px); }
+
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 24px 16px;
+            flex-shrink: 0;
+        }
+        .sidebar-section { margin-bottom: 24px; }
+        .section-title { font-size: 11px; font-weight: 700; color: var(--text-muted); margin-bottom: 12px; display: block; padding-left: 8px; letter-spacing: 0.5px; }
+        .nav-links { list-style: none; }
+        .nav-links li a {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 12px; text-decoration: none;
+            color: var(--text-main); border-radius: 8px; font-weight: 500;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+        .nav-links li a:hover { background-color: var(--bg-color); transform: translateX(2px); }
+        .nav-links li.active a { background-color: var(--secondary-blue); color: var(--primary-blue); }
+
+        /* =========================================
+           CONTENIDO PRINCIPAL
+           ========================================= */
+        .content-area { flex: 1; padding: 32px 48px; max-width: 1100px; margin: 0 auto; }
+
+        .breadcrumb { font-size: 12px; color: var(--text-muted); margin-bottom: 16px; }
+        .breadcrumb a { color: var(--primary-blue); text-decoration: none; }
+
+        .page-header { margin-bottom: 32px; animation: fadeInUp 0.6s ease-out; }
+        .page-header h2 { font-size: 26px; color: var(--primary-blue); margin-bottom: 6px; }
+        .page-header p { color: var(--text-muted); font-size: 15px; }
+
+        /* --- BUSCADOR --- */
+        .search-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #2d4fa0 100%);
+            border-radius: 16px;
+            padding: 40px;
+            color: white;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-lg);
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+            position: relative;
+            overflow: hidden;
+        }
+        .search-hero::after {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .search-hero h3 { font-size: 22px; margin-bottom: 8px; font-weight: 600; }
+        .search-hero p { opacity: 0.9; margin-bottom: 20px; font-size: 14px; }
+
+        .search-bar {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        .search-bar i { align-self: center; padding-left: 18px; color: var(--text-muted); font-size: 16px; }
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 16px 18px;
+            font-size: 15px;
+            font-family: var(--font-family);
+            color: var(--text-main);
+            outline: none;
+        }
+        .search-bar button {
+            background-color: var(--warning-orange);
+            color: white;
+            border: none;
+            padding: 0 28px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .search-bar button:hover { background-color: #d97706; }
+
+        /* --- CATEGORÍAS --- */
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+        .section-heading h3 { font-size: 18px; color: var(--text-main); }
+        .section-heading a { color: var(--primary-blue); text-decoration: none; font-size: 13px; font-weight: 600; }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .category-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            animation: fadeInUp 0.5s ease-out both;
+        }
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-blue);
+        }
+        .category-icon {
+            width: 44px; height: 44px;
+            border-radius: 10px;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 20px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        .category-card:hover .category-icon { transform: scale(1.1) rotate(-3deg); }
+        .category-card h4 { font-size: 14px; margin-bottom: 4px; color: var(--text-main); }
+        .category-card span { font-size: 12px; color: var(--text-muted); }
+
+        /* Colores de íconos por categoría */
+        .cat-his { background: #dbeafe; color: #1e40af; }
+        .cat-pacs { background: #fce7f3; color: #be185d; }
+        .cat-lis { background: #dcfce7; color: #15803d; }
+        .cat-farmacia { background: #fef3c7; color: #b45309; }
+        .cat-red { background: #e0e7ff; color: #4338ca; }
+        .cat-seguridad { background: #fee2e2; color: #b91c1c; }
+
+        [data-theme="dark"] .cat-his { background: rgba(59,130,246,0.15); color: #60a5fa; }
+        [data-theme="dark"] .cat-pacs { background: rgba(236,72,153,0.15); color: #f472b6; }
+        [data-theme="dark"] .cat-lis { background: rgba(34,197,94,0.15); color: #4ade80; }
+        [data-theme="dark"] .cat-farmacia { background: rgba(245,158,11,0.15); color: #fbbf24; }
+        [data-theme="dark"] .cat-red { background: rgba(99,102,241,0.15); color: #818cf8; }
+        [data-theme="dark"] .cat-seguridad { background: rgba(239,68,68,0.15); color: #f87171; }
+
+        /* --- ARTÍCULOS DESTACADOS --- */
+        .articles-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+
+        .article-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: fadeInUp 0.5s ease-out both;
+            cursor: pointer;
+        }
+        .article-card:hover {
+            transform: translateX(4px);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-blue);
+        }
+        .article-main { flex: 1; }
+        .article-tags { display: flex; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+        .tag {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .tag-critical { background: #fee2e2; color: #b91c1c; }
+        .tag-guide { background: var(--secondary-blue); color: var(--primary-blue); }
+        .tag-updated { background: #dcfce7; color: #15803d; }
+        [data-theme="dark"] .tag-critical { background: rgba(239,68,68,0.2); color: #f87171; }
+        [data-theme="dark"] .tag-updated { background: rgba(34,197,94,0.2); color: #4ade80; }
+
+        .article-card h4 { font-size: 15px; margin-bottom: 4px; color: var(--text-main); }
+        .article-card p { font-size: 13px; color: var(--text-muted); }
+
+        .article-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 8px;
+            font-size: 12px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+        .usefulness { display: flex; gap: 6px; align-items: center; }
+        .usefulness button {
+            background: none;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 4px 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+        .usefulness button:hover { background: var(--secondary-blue); color: var(--primary-blue); border-color: var(--primary-blue); }
+
+        /* --- SECCIÓN CONTINGENCIA --- */
+        .contingency-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 40px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+        [data-theme="dark"] .contingency-box { background: linear-gradient(135deg, #422006 0%, #78350f 100%); border-color: #b45309; }
+        .contingency-box i { font-size: 32px; color: #b45309; }
+        [data-theme="dark"] .contingency-box i { color: #fbbf24; }
+        .contingency-box h4 { color: #78350f; margin-bottom: 4px; }
+        [data-theme="dark"] .contingency-box h4 { color: #fef3c7; }
+        .contingency-box p { color: #92400e; font-size: 13px; }
+        [data-theme="dark"] .contingency-box p { color: #fde68a; }
+        .contingency-box .btn-contingency {
+            margin-left: auto;
+            background: #b45309;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+        .contingency-box .btn-contingency:hover { background: #92400e; }
+
+        /* --- CTA CREAR TICKET --- */
+        .cta-ticket {
+            background-color: var(--card-bg);
+            border: 2px dashed var(--border-color);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+        .cta-ticket i { font-size: 36px; color: var(--primary-blue); margin-bottom: 12px; }
+        .cta-ticket h4 { font-size: 18px; margin-bottom: 6px; }
+        .cta-ticket p { color: var(--text-muted); margin-bottom: 20px; }
+        .btn-primary {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary:hover { background-color: var(--primary-blue-hover); transform: translateY(-2px); }
+
+        /* --- ANIMACIONES --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Aplicar retraso escalonado a las categorías y artículos */
+        .category-card:nth-child(1) { animation-delay: 0.15s; }
+        .category-card:nth-child(2) { animation-delay: 0.20s; }
+        .category-card:nth-child(3) { animation-delay: 0.25s; }
+        .category-card:nth-child(4) { animation-delay: 0.30s; }
+        .category-card:nth-child(5) { animation-delay: 0.35s; }
+        .category-card:nth-child(6) { animation-delay: 0.40s; }
+
+        .article-card:nth-child(1) { animation-delay: 0.25s; }
+        .article-card:nth-child(2) { animation-delay: 0.30s; }
+        .article-card:nth-child(3) { animation-delay: 0.35s; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .main-layout { flex-direction: column; }
+            .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border-color); padding: 16px; }
+            .content-area { padding: 24px 16px; }
+            .search-hero { padding: 24px; }
+            .search-bar button { padding: 0 16px; }
+            .article-card { flex-direction: column; align-items: flex-start; }
+            .article-meta { align-items: flex-start; flex-direction: row; width: 100%; justify-content: space-between; }
+            .contingency-box { flex-direction: column; text-align: center; }
+            .contingency-box .btn-contingency { margin-left: 0; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="top-header">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="logo-text">
+                <h1>nexo</h1>
+                <span>TECNOLOGÍA QUE CUIDA</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="status-badge"><span class="dot"></span> Soporte 24/7 activo</span>
+            <div class="user-profile">
+                <div class="avatar">AV</div>
+                <div class="user-info">
+                    <span class="name">Julio Velásquez</span>
+                    <span class="role">Coordinador TI</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layout -->
+    <div class="main-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <span class="section-title">ESPACIO DE OPERACIÓN</span>
+                <ul class="nav-links">
+                    <li><a href="./inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                    <li><a href="./tickets.html"><i class="fa-solid fa-ticket"></i> Tickets</a></li>
+                    <li><a href="#"><i class="fa-solid fa-triangle-exclamation"></i> Atención crítica</a></li>
+                    <li><a href="./indicadores.html"><i class="fa-solid fa-chart-line"></i> Indicadores</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <ul class="nav-links">
+                    <li class="active"><a href="./base-conocimiento.html"><i class="fa-solid fa-book"></i> Base de conocimiento</a></li>
+                    <li><a href="./configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Contenido Principal -->
+        <main class="content-area">
+            <div class="breadcrumb">
+                <a href="#">Portal de servicio</a> / <span>Base de conocimiento</span>
+            </div>
+
+            <div class="page-header">
+                <h2>Base de Conocimiento</h2>
+                <p>Encuentra guías, protocolos y soluciones para los sistemas clínicos y de TI del hospital.</p>
+            </div>
+
+            <!-- Buscador Hero -->
+            <div class="search-hero">
+                <h3><i class="fa-solid fa-magnifying-glass"></i> ¿En qué podemos ayudarte hoy?</h3>
+                <p>Busca por síntoma, sistema o palabra clave. Ejemplo: "PACS no carga", "Error HIS", "VPN".</p>
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="kbSearch" placeholder="Buscar artículos, guías o protocolos...">
+                    <button onclick="alert('Buscando artículos... (simulación)')">Buscar</button>
+                </div>
+            </div>
+
+            <!-- Categorías -->
+            <div class="section-heading">
+                <h3>Categorías principales</h3>
+                <a href="#">Ver todas <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon cat-his"><i class="fa-solid fa-file-medical"></i></div>
+                    <h4>Historia Clínica (HIS)</h4>
+                    <span>32 artículos</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon cat-pacs"><i class="fa-solid fa-x-ray"></i></div>
+                    <h4>Imágenes Médicas (PACS)</h4>
+                    <span>28 artículos</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon cat-lis"><i class="fa-solid fa-flask"></i></div>
+                    <h4>Laboratorio (LIS)</h4>
+                    <span>19 artículos</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon cat-farmacia"><i class="fa-solid fa-pills"></i></div>
+                    <h4>Farmacia y Prescripción</h4>
+                    <span>15 artículos</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon cat-red"><i class="fa-solid fa-network-wired"></i></div>
+                    <h4>Red y Conectividad</h4>
+                    <span>24 artículos</span>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon cat-seguridad"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h4>Seguridad y Cumplimiento</h4>
+                    <span>12 artículos</span>
+                </div>
+            </div>
+
+            <!-- Artículos Destacados -->
+            <div class="section-heading">
+                <h3>Artículos destacados</h3>
+                <a href="#">Ver más <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="articles-list">
+                <div class="article-card">
+                    <div class="article-main">
+                        <div class="article-tags">
+                            <span class="tag tag-critical">Crítico</span>
+                            <span class="tag tag-guide">Guía rápida</span>
+                        </div>
+                        <h4>Cómo actuar ante una caída del sistema HIS</h4>
+                        <p>Protocolo de contingencia manual para registro de pacientes y continuidad clínica.</p>
+                    </div>
+                    <div class="article-meta">
+                        <span>Actualizado: 12 Oct 2026</span>
+                        <div class="usefulness">
+                            <span>¿Te fue útil?</span>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-up\'></i> ¡Gracias!'">👍</button>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-down\'></i> Lo sentimos'">👎</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-main">
+                        <div class="article-tags">
+                            <span class="tag tag-guide">Guía rápida</span>
+                            <span class="tag tag-updated">Actualizado</span>
+                        </div>
+                        <h4>Restablecer contraseña de acceso a PACS</h4>
+                        <p>Pasos para que el personal de radiología recupere el acceso al visor de imágenes.</p>
+                    </div>
+                    <div class="article-meta">
+                        <span>Actualizado: 08 Oct 2026</span>
+                        <div class="usefulness">
+                            <span>¿Te fue útil?</span>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-up\'></i> ¡Gracias!'">👍</button>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-down\'></i> Lo sentimos'">👎</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-card">
+                    <div class="article-main">
+                        <div class="article-tags">
+                            <span class="tag tag-guide">Guía rápida</span>
+                        </div>
+                        <h4>Configuración de impresoras de etiquetas de laboratorio</h4>
+                        <p>Solución de problemas comunes con la impresora de etiquetas del área de toma de muestras.</p>
+                    </div>
+                    <div class="article-meta">
+                        <span>Actualizado: 05 Oct 2026</span>
+                        <div class="usefulness">
+                            <span>¿Te fue útil?</span>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-up\'></i> ¡Gracias!'">👍</button>
+                            <button onclick="this.innerHTML='<i class=\'fa-solid fa-thumbs-down\'></i> Lo sentimos'">👎</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Contingencia -->
+            <div class="contingency-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <h4>¿El sistema está caído y no puedes esperar?</h4>
+                    <p>Consulta los protocolos de contingencia manual para garantizar la atención del paciente.</p>
+                </div>
+                <button class="btn-contingency" onclick="alert('Abriendo protocolos de contingencia...')">Ver protocolos <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+
+            <!-- CTA Crear Ticket -->
+            <div class="cta-ticket">
+                <i class="fa-regular fa-circle-question"></i>
+                <h4>¿No encuentras lo que buscas?</h4>
+                <p>Nuestro equipo de soporte está disponible 24/7 para ayudarte con cualquier incidente.</p>
+                <button class="btn-primary" onclick="alert('Redirigiendo al formulario de creación de ticket...')">
+                    <i class="fa-solid fa-plus"></i> Crear un nuevo ticket
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Script para modo oscuro (opcional, si quieres que persista) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('nexo-theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        });
+    </script>
+</body>
+</html>

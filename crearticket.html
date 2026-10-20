@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexo - Crear Nuevo Ticket</title>
+    <link rel="stylesheet" href="./crearticket.css">
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Barra Superior / Header -->
+    <header class="top-header">
+        <div class="logo-area">
+            <div class="logo-icon"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="logo-text">
+                <h1>nexo</h1>
+                <span>TECNOLOGÍA QUE CUIDA</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <span class="status-badge"><span class="dot"></span> Soporte 24/7 activo</span>
+            <span class="date-time">16 Oct 2026 • 22:40</span>
+            <i class="fa-regular fa-bell notification-icon"></i>
+            <div class="user-profile">
+                <div class="avatar">AV</div>
+                <div class="user-info">
+                    <span class="name">Julio Veláquez</span>
+                    <span class="role">Coordinador TI</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor Principal -->
+    <div class="main-layout">
+        
+        <!-- Sidebar (Menú lateral resumido) -->
+        <aside class="sidebar">
+            <div class="sidebar-section">
+                <span class="section-title">ESPACIO DE OPERACIÓN</span>
+                <ul class="nav-links">
+                    <li><a href="./inicio.html"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                    <li class="active"><a href="./tickets.html"><i class="fa-solid fa-ticket"></i> Tickets</a></li>
+                    <li><a href="./atencion-critica.html"><i class="fa-solid fa-triangle-exclamation"></i> Atención crítica</a></li>
+                    <li><a href="./indicadores.html"><i class="fa-solid fa-chart-line"></i> Indicadores</a></li>
+                </ul>
+            </div>
+            <div class="sidebar-section">
+                <ul class="nav-links">
+                    <li><a href="./base-conocimiento.html"><i class="fa-solid fa-book"></i> Base de conocimiento</a></li>
+                    <li><a href="./configuracion.html"><i class="fa-solid fa-gear"></i> Configuración</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Área Central de Contenido (Formulario) -->
+        <main class="content-area">
+            
+            <div class="breadcrumb">
+                <a href="./inicio.html">Portal de servicio</a> / <a href="./tickets.html">Tickets</a> / <span>Nuevo ticket</span>
+            </div>
+
+            <div class="page-header">
+                <div>
+                    <h2>Crear nuevo ticket</h2>
+                    <p>Registra un incidente o solicitud para el equipo de soporte TI.</p>
+                </div>
+                <button class="btn-back" onclick="window.history.back()"><i class="fa-solid fa-arrow-left"></i> Volver</button>
+            </div>
+
+            <!-- Formulario Principal -->
+            <div class="card form-card">
+                <form id="ticketForm">
+                    
+                    <!-- Fila 1: Asunto -->
+                    <div class="form-group full-width">
+                        <label for="subject">Asunto del ticket <span class="required">*</span></label>
+                        <input type="text" id="subject" name="subject" placeholder="Ej: Intermitencia en visor de imágenes PACS - Hospital Central" required>
+                    </div>
+
+                    <!-- Fila 2: Categoría y Prioridad -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="category">Categoría del servicio <span class="required">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Seleccione una categoría...</option>
+                                <option value="pacs">Imágenes médicas (PACS)</option>
+                                <option value="his">Historia clínica electrónica (HIS)</option>
+                                <option value="lis">Laboratorio (LIS)</option>
+                                <option value="red">Red y conectividad</option>
+                                <option value="farmacia">Farmacia y prescripción</option>
+                                <option value="hardware">Hardware / Equipos</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="priority">Prioridad <span class="required">*</span></label>
+                            <select id="priority" name="priority" required>
+                                <option value="" disabled selected>Seleccione prioridad...</option>
+                                <option value="p1">P1 - Crítica (Afectación paciente)</option>
+                                <option value="p2">P2 - Alta (Servicio degradado)</option>
+                                <option value="p3">P3 - Media (Afectación parcial)</option>
+                                <option value="p4">P4 - Baja (Solicitud / Consulta)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Fila 3: Sede y Ubicación -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">Sede / Hospital <span class="required">*</span></label>
+                            <select id="location" name="location" required>
+                                <option value="" disabled selected>Seleccione sede...</option>
+                                <option value="central">Hospital Central</option>
+                                <option value="norte">Sede Norte</option>
+                                <option value="sur">Sede Sur</option>
+                                <option value="administrativo">Edificio Administrativo</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="area">Área / Consultorio</label>
+                            <input type="text" id="area" name="area" placeholder="Ej: Radiología, Piso 2, Consultorio 4">
+                        </div>
+                    </div>
+
+                    <!-- Fila 4: Descripción -->
+                    <div class="form-group full-width">
+                        <label for="description">Descripción detallada <span class="required">*</span></label>
+                        <textarea id="description" name="description" rows="5" placeholder="Describe el problema o solicitud con el mayor detalle posible. Incluye pasos para reproducir el error si aplica..." required></textarea>
+                        <small class="help-text">No incluyas datos sensibles de pacientes (PII) en esta descripción.</small>
+                    </div>
+
+                    <!-- Fila 5: Adjuntos (Interactivo) -->
+                    <div class="form-group full-width">
+                        <label>Adjuntar archivo (Opcional)</label>
+                        
+                        <!-- Input real oculto -->
+                        <input type="file" id="fileInput" multiple accept=".png, .jpg, .jpeg, .pdf" style="display: none;">
+                        
+                        <!-- Área de Dropzone -->
+                        <div class="file-upload-area" id="dropZone">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <p>Arrastra y suelta archivos aquí, o <span class="browse-link">selecciona desde tu equipo</span></p>
+                            <span class="file-limits">PNG, JPG, PDF hasta 10MB</span>
+                        </div>
+
+                        <!-- Lista de archivos seleccionados (Oculta por defecto) -->
+                        <div id="fileList" class="file-list"></div>
+                    </div>
+
+                    <!-- Acciones del Formulario -->
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('ticketForm').reset()">Limpiar</button>
+                        <button type="submit" class="btn-primary">Crear Ticket</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de Éxito (Oculto por defecto) -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon"><i class="fa-solid fa-check"></i></div>
+            <h3>¡Ticket creado con éxito!</h3>
+            <p>Tu solicitud ha sido registrada con el ID <strong id="ticketId">INC-0000</strong>.</p>
+            <p class="modal-subtext">El equipo de soporte se pondrá en contacto contigo a la brevedad.</p>
+            <button class="btn-primary" onclick="closeModal()">Aceptar</button>
+        </div>
+    </div>
+    
+    <script src="./crearticket.js"></script>
+</body>
+</html>
